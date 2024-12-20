@@ -1,0 +1,140 @@
+							Ryan Stearns		
+							00620126
+							Seat 04
+							Lab 14				
+
+
+
+
+  GNU nano 2.0.6                                         File: lab14
+
+#lab14
+#Ryan Stearns       - Prompts user for input and displays  -
+#Seat 04            -        it back in sentences          -
+
+
+#Clear screen, prompt, & store last name
+clear
+echo "What is your last name?"
+read lname
+
+#Prompt and store home town
+echo "What is your home town?"
+read htown
+
+#Prompt and store seat number
+echo "What is your seat number?"
+read snum
+echo
+
+#Display user information
+echo "You logged in as $LOGNAME."
+echo "So, you are a member of the $lname family, and you live in $htown."
+echo "I hope that $snum is a lucky number for you."
+date "+Today is %A."
+
+
+
+
+
+
+  GNU nano 2.0.6                                         File: menu1
+
+#menu1
+#Ryan Stearns         -  Displays menu, prompts, and evaulates -
+#Seat 04              -    through an if-then statement        -
+
+
+#Clear screen and set up menu
+clear
+echo
+echo "       |MAIN MENU|"
+echo
+echo "      N. Name of the current directory"
+echo "      C. Contents of the current directory"
+echo
+echo
+echo "  Enter N, or C:"
+read answer
+echo
+
+#Compare user input to valid letters
+if [ $answer = "N" ] || [ $answer = "n" ]
+    then
+        echo "You're viewing the name of the current directory:"
+        echo
+        pwd
+        echo
+    else
+        if [ $answer = "C" ] || [ $answer = "c" ]
+           then
+               echo "You're viewing a list of the contents of the current directory:"
+               echo
+               ls -C
+               echo
+        else
+           echo "You typed an invalid letter."
+        fi
+fi
+
+
+
+
+
+
+  GNU nano 2.0.6                                         File: menu2
+
+#menu2
+#Ryan Stearns        -  Displays menu, prompts, and evaluates -
+#Seat 04             -      input through case statement      -
+
+
+#Clear screen and set up menu
+clear
+echo
+echo "        MAIN MENU"
+echo "       -----------"
+echo
+echo "   C. Input file name and disply its contents"
+echo "   L. List files and directories in current directory"
+echo "   M. Concatenate files"
+echo "   Q. Quit"
+echo
+echo
+echo "  Enter C, L, M, or Q:"
+read answer
+echo
+
+#Compare user input to valid letters
+case $answer in
+        C|c) echo "Input file name:"
+             read fname
+             echo
+             cat $fname
+             ;;
+        L|l) ls -l
+             ;;
+        M|m) echo "Input first file name:"
+             read ffile
+             echo "Input second file name:"
+             read sfile
+             echo "Input resulting file name:"
+             read rfile
+             cat $ffile $sfile > $rfile
+             echo
+             echo "The new file $rfile has been created.  Its contents are below:"
+             echo
+             cat $rfile
+             echo
+             ;;
+        Q|q) exit
+             ;; 
+	  *) echo "Please input a valid letter."
+             ;;
+
+esac
+
+
+
+
+

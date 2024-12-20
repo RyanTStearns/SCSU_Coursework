@@ -1,0 +1,42 @@
+#typefile
+
+
+        if [ -s $1 ]
+           then
+                echo
+                cat $1
+                echo
+           else
+                echo
+                echo "The file you entered, $1, does not exist."
+                echo
+        fi
+
+
+
+
+
+
+#mycopy
+
+echo
+echo "Please enter the file name to copy:"
+read fname
+
+if [ -s /export/home/cna397/CLASS/$fname ]
+        then
+            cp /export/home/cna397/CLASS/$fname $fname
+            echo
+            echo "The file $fname was copied successfully."
+            echo
+        else
+            echo
+            echo "The file you entered, $fname, does not exist"
+            echo
+fi
+
+
+
+
+
+

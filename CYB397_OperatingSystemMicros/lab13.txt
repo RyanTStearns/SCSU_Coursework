@@ -1,0 +1,46 @@
+						Ryan Stearns
+						Lab 13
+						Seat 04
+						
+
+
+
+[cna39704@olympus ~]$ more intro
+#intro
+
+#clear the screen
+clear
+
+#Print greeting
+echo Greetings, $LOGNAME
+#Print date
+date "+The date is %d %b %y, a %A."
+#Print time
+date "+The time is %r"
+#Print line
+echo This is great fun!
+
+
+Greetings, cna39704
+The date is 30 Mar 11, a Wednesday.
+The time is 04:29:25 PM
+This is great fun!
+
+
+
+
+
+
+[cna39704@olympus ~]$ more cna/whatIlike
+#whatIlike
+
+echo My name is Ryan Stearns.
+echo My favorite sport is hockey.
+echo My favorite movie is Anchorman : Legend of Ron Burgundy.
+
+
+
+My name is Ryan Stearns.
+My favorite sport is hockey.
+My favorite movie is Anchorman : Legend of Ron Burgundy.
+
