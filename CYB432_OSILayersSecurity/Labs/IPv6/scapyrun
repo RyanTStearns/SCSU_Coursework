@@ -1,0 +1,695 @@
+Welcome to Scapy (2.2.0)
+>>> x = IPv6(dst='2001::a6b8',src='8008::b8b8)
+  File "<console>", line 1
+    x = IPv6(dst='2001::a6b8',src='8008::b8b8)
+                                             ^
+SyntaxError: EOL while scanning string literal
+>>> x = IPv6(dst='2001::a6b8',src='8008::b8b8')
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> payload = "far.run" * 50
+>>> payload.show
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'show'
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> y = ICMPv6EchoRequest (data=payload)
+>>> packet = x/y
+>>> packet.show()
+###[ IPv6 ]###
+  version= 6
+  tc= 0
+  fl= 0
+  plen= None
+  nh= ICMPv6
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ ICMPv6 Echo Request ]###
+     type= Echo Request
+     code= 0
+     cksum= None
+     id= 0x0
+     seq= 0x0
+     data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> send(packet)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> send(packet)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> send(packet)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> send(packet)
+.
+Sent 1 packets.
+>>> send(packet)
+.
+Sent 1 packets.
+>>> send(packet)
+.
+Sent 1 packets.
+>>> packet.show
+<bound method IPv6.show of <IPv6  nh=ICMPv6 src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |<ICMPv6EchoRequest  data='far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run' |>>>
+>>> send(packet)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> y.show
+<bound method ICMPv6EchoRequest.show of <ICMPv6EchoRequest  data='far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run' |>>
+>>> payload.show()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'show'
+>>> payload.show
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'show'
+>>> payload
+'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> y.show
+<bound method ICMPv6EchoRequest.show of <ICMPv6EchoRequest  data='far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run' |>>
+>>> packet.show
+<bound method IPv6.show of <IPv6  nh=ICMPv6 src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |<ICMPv6EchoRequest  data='far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run' |>>>
+>>> packet.show()
+###[ IPv6 ]###
+  version= 6
+  tc= 0
+  fl= 0
+  plen= None
+  nh= ICMPv6
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ ICMPv6 Echo Request ]###
+     type= Echo Request
+     code= 0
+     cksum= None
+     id= 0x0
+     seq= 0x0
+     data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> packet.send
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 176, in __getattr__
+    fld,v = self.getfield_and_val(attr)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 172, in getfield_and_val
+    return self.payload.getfield_and_val(attr)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 172, in getfield_and_val
+    return self.payload.getfield_and_val(attr)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 1057, in getfield_and_val
+    raise AttributeError(attr)
+AttributeError: send
+>>> send(packet)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> ls(IPv6ExtHdrHopByHop)
+nh         : ByteEnumField        = (59)
+len        : FieldLenField        = (None)
+autopad    : _PhantomAutoPadField = (1)
+options    : _HopByHopOptionsField = ([])
+>>> extension = IPv6ExtHdrHopByHop()
+>>> jumbo.jumboplen = 200
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'jumbo' is not defined
+>>> jumbo = Jumbo()
+>>> jumbo.jumboplen = 200
+>>> extension.options = jumbo
+>>> packet2 = x/extension
+>>> packet2.show2()
+###[ IPv6 ]###
+  version= 6L
+  tc= 0L
+  fl= 0L
+  plen= 8
+  nh= Hop-by-Hop Option Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Extension Header - Hop-by-Hop Options Header ]###
+     nh= No Next Header
+     len= 0
+     autopad= On
+     \options\
+      |###[ Jumbo Payload ]###
+      |  otype= Jumbo Payload [11: discard+ICMP not mcast, 0: Don't change en-route]
+      |  optlen= 4
+      |  jumboplen= 200
+>>> padn = PadN()
+>>> padn.padnlen = 200
+>>> extension.options = padn
+>>> packet2 = x/extension
+>>> packet2.show2()
+###[ IPv6 ]###
+  version= 6L
+  tc= 0L
+  fl= 0L
+  plen= 8
+  nh= Hop-by-Hop Option Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Extension Header - Hop-by-Hop Options Header ]###
+     nh= No Next Header
+     len= 0
+     autopad= On
+     \options\
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= 0
+      |  optdata= ''
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= 2
+      |  optdata= '\x00\x00'
+>>> padn.optdata = a * 200
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'a' is not defined
+>>> padn.optdata = 'a' * 200
+>>> packet2.show2()
+###[ IPv6 ]###
+  version= 6L
+  tc= 0L
+  fl= 0L
+  plen= 8
+  nh= Hop-by-Hop Option Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Extension Header - Hop-by-Hop Options Header ]###
+     nh= No Next Header
+     len= 0
+     autopad= On
+     \options\
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= 0
+      |  optdata= ''
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= 2
+      |  optdata= '\x00\x00'
+>>> padn.optlen = 200
+>>> packet2.show2()
+###[ IPv6 ]###
+  version= 6L
+  tc= 0L
+  fl= 0L
+  plen= 8
+  nh= Hop-by-Hop Option Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Extension Header - Hop-by-Hop Options Header ]###
+     nh= No Next Header
+     len= 0
+     autopad= On
+     \options\
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= 0
+      |  optdata= ''
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= 2
+      |  optdata= '\x00\x00'
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> r = IPv6(dst='2001::a6b8',src='8008::b8b8')
+>>> s = IPv6ExtHdrHopByHop(nh=6, options=[PadN(optdata=("A" * 200)])
+  File "<console>", line 1
+    s = IPv6ExtHdrHopByHop(nh=6, options=[PadN(optdata=("A" * 200)])
+                                                                  ^
+SyntaxError: invalid syntax
+>>> s = IPv6ExtHdrHopByHop(nh=6, options=[PadN(optdata=("A" * 200))]
+... 
+... 
+KeyboardInterrupt
+>>> s.show
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 's' is not defined
+>>> s.show()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 's' is not defined
+>>> s = IPv6ExtHdrHopByHop(nh=6, options=PadN(optdata=("A" * 200))
+... 
+KeyboardInterrupt
+>>> s = IPv6ExtHdrHopByHop(nh='6', options=PadN(optdata=("A" * 200)))
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/usr/lib/python2.7/dist-packages/scapy/base_classes.py", line 198, in __call__
+    i.__init__(*args, **kargs)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 84, in __init__
+    self.fields[f] = self.get_field(f).any2i(self,fields[f])
+  File "/usr/lib/python2.7/dist-packages/scapy/fields.py", line 733, in any2i
+    return self.any2i_one(pkt,x)
+  File "/usr/lib/python2.7/dist-packages/scapy/fields.py", line 722, in any2i_one
+    x = self.s2i[x]
+KeyError: '6'
+>>> t = ("A" * 200)
+>>> s = IPv6ExtHdrHopByHop(nh='6', options=PadN(optdata=t)
+... 
+KeyboardInterrupt
+>>> s = IPv6ExtHdrHopByHop(nh='6', options=PadN(optdata=t))
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/usr/lib/python2.7/dist-packages/scapy/base_classes.py", line 198, in __call__
+    i.__init__(*args, **kargs)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 84, in __init__
+    self.fields[f] = self.get_field(f).any2i(self,fields[f])
+  File "/usr/lib/python2.7/dist-packages/scapy/fields.py", line 733, in any2i
+    return self.any2i_one(pkt,x)
+  File "/usr/lib/python2.7/dist-packages/scapy/fields.py", line 722, in any2i_one
+    x = self.s2i[x]
+KeyError: '6'
+>>> s = IPv6ExtHdrHopByHop(options=PadN(optdata=t))
+>>> s.show
+<bound method IPv6ExtHdrHopByHop.show of <IPv6ExtHdrHopByHop  options=[<PadN  optdata='AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' |>] |>>
+>>> y.show
+<bound method ICMPv6EchoRequest.show of <ICMPv6EchoRequest  data='far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run' |>>
+>>> packet2 = r/s/y
+>>> packet2.send()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 176, in __getattr__
+    fld,v = self.getfield_and_val(attr)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 172, in getfield_and_val
+    return self.payload.getfield_and_val(attr)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 172, in getfield_and_val
+    return self.payload.getfield_and_val(attr)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 172, in getfield_and_val
+    return self.payload.getfield_and_val(attr)
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 1057, in getfield_and_val
+    raise AttributeError(attr)
+AttributeError: send
+>>> send.packet2()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'function' object has no attribute 'packet2'
+>>> send(packet2)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> send(packet2)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> packet2.show()
+###[ IPv6 ]###
+  version= 6
+  tc= 0
+  fl= 0
+  plen= None
+  nh= Hop-by-Hop Option Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Extension Header - Hop-by-Hop Options Header ]###
+     nh= ICMPv6
+     len= None
+     autopad= On
+     \options\
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= None
+      |  optdata= 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+###[ ICMPv6 Echo Request ]###
+        type= Echo Request
+        code= 0
+        cksum= None
+        id= 0x0
+        seq= 0x0
+        data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> packet2.show2()
+###[ IPv6 ]###
+  version= 6L
+  tc= 0L
+  fl= 0L
+  plen= 566
+  nh= Hop-by-Hop Option Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Extension Header - Hop-by-Hop Options Header ]###
+     nh= ICMPv6
+     len= 25
+     autopad= On
+     \options\
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= 200
+      |  optdata= 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+      |###[ PadN ]###
+      |  otype= PadN [00: skip, 0: Don't change en-route]
+      |  optlen= 2
+      |  optdata= '\x00\x00'
+###[ ICMPv6 Echo Request ]###
+        type= Echo Request
+        code= 0
+        cksum= 0xde43
+        id= 0x0
+        seq= 0x0
+        data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> r.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> s.show
+<bound method IPv6ExtHdrHopByHop.show of <IPv6ExtHdrHopByHop  options=[<PadN  optdata='AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' |>] |>>
+>>> send(packet2)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> a = IPv6ExtHdrFragment(offset=100, m=1)
+>>> a.show
+<bound method IPv6ExtHdrFragment.show of <IPv6ExtHdrFragment  offset=100 m=1 |>>
+>>> b = IPv6(dst='2001::a6b8',src='8008::b8b8')
+>>> a.show
+<bound method IPv6ExtHdrFragment.show of <IPv6ExtHdrFragment  offset=100 m=1 |>>
+>>> packet3 = a/b/y
+>>> packet3.show2()
+###[ IPv6 Extension Header - Fragmentation header ]###
+  nh= IPv6
+  res1= 0L
+  offset= 100L
+  res2= 0L
+  m= 1L
+  id= 0
+###[ IPv6 ]###
+     version= 6L
+     tc= 0L
+     fl= 0L
+     plen= 358
+     nh= ICMPv6
+     hlim= 64
+     src= 8008::b8b8
+     dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ ICMPv6 Echo Request ]###
+        type= Echo Request
+        code= 0
+        cksum= 0xde43
+        id= 0x0
+        seq= 0x0
+        data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> send(packet3)
+WARNING: Mac address to reach destination not found. Using broadcast.
+.
+Sent 1 packets.
+>>> send(packet3)
+WARNING: Mac address to reach destination not found. Using broadcast.
+.
+Sent 1 packets.
+>>> send(packet3)
+WARNING: Mac address to reach destination not found. Using broadcast.
+.
+Sent 1 packets.
+>>> r.show()
+###[ IPv6 ]###
+  version= 6
+  tc= 0
+  fl= 0
+  plen= None
+  nh= No Next Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+>>> packet3 = b/a/y
+>>> send(packet3)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> b.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> a.show
+<bound method IPv6ExtHdrFragment.show of <IPv6ExtHdrFragment  offset=100 m=1 |>>
+>>> packet3.show2()
+###[ IPv6 ]###
+  version= 6L
+  tc= 0L
+  fl= 0L
+  plen= 366
+  nh= Fragment Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Extension Header - Fragmentation header ]###
+     nh= ICMPv6
+     res1= 0L
+     offset= 100L
+     res2= 0L
+     m= 1L
+     id= 0
+###[ ICMPv6 Echo Request ]###
+        type= Echo Request
+        code= 0
+        cksum= 0xde43
+        id= 0x0
+        seq= 0x0
+        data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> s
+
+root@kali:/usr/lib/python2.6/dist-packages/scapy/layers# scapy
+INFO: Can't import python gnuplot wrapper . Won't be able to plot.
+WARNING: No route found for IPv6 destination :: (no default route?)
+Welcome to Scapy (2.2.0)
+>>> z.show
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'z' is not defined
+>>> x.show
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'x' is not defined
+>>> x = IPv6(dst='2001::a6b8',src='8008::b8b8')
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> y.show
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'y' is not defined
+>>> payload = "far.run" * 50
+>>> payload.show()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'show'
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> y = ICMPv6EchoRequest (data=payload)
+>>> z.show()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'z' is not defined
+>>> x.show()
+###[ IPv6 ]###
+  version= 6
+  tc= 0
+  fl= 0
+  plen= None
+  nh= No Next Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+>>> y.show()
+###[ ICMPv6 Echo Request ]###
+  type= Echo Request
+  code= 0
+  cksum= None
+  id= 0x0
+  seq= 0x0
+  data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> z = IPv6ExtHdrRouting(addresses=['8008::b8b8' dst='2001::a6b8'])
+  File "<console>", line 1
+    z = IPv6ExtHdrRouting(addresses=['8008::b8b8' dst='2001::a6b8'])
+                                                    ^
+SyntaxError: invalid syntax
+>>> z = IPv6ExtHdrRouting(addresses=['8008::b8b8', dst='2001::a6b8'])
+  File "<console>", line 1
+    z = IPv6ExtHdrRouting(addresses=['8008::b8b8', dst='2001::a6b8'])
+                                                      ^
+SyntaxError: invalid syntax
+>>> z = IPv6ExtHdrRouting(addresses=['8008::b8b8', '2001::a6b8'])
+>>> z.show
+<bound method IPv6ExtHdrRouting.show of <IPv6ExtHdrRouting  addresses=[ 8008::b8b8, 2001::a6b8 ] |>>
+>>> packet = z/x/y
+>>> packet.show2()
+###[ IPv6 Option Header Routing ]###
+  nh= IPv6
+  len= 4
+  type= 0
+  segleft= 2
+  reserved= 0L
+  addresses= [ 8008::b8b8, 2001::a6b8 ]
+###[ IPv6 ]###
+     version= 6L
+     tc= 0L
+     fl= 0L
+     plen= 358
+     nh= ICMPv6
+     hlim= 64
+     src= 8008::b8b8
+     dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ ICMPv6 Echo Request ]###
+        type= Echo Request
+        code= 0
+        cksum= 0xde43
+        id= 0x0
+        seq= 0x0
+        data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> send(packet)
+WARNING: Mac address to reach destination not found. Using broadcast.
+.
+Sent 1 packets.
+>>> send(packet)
+WARNING: Mac address to reach destination not found. Using broadcast.
+.
+Sent 1 packets.
+>>> send(packet)
+WARNING: Mac address to reach destination not found. Using broadcast.
+.
+Sent 1 packets.
+>>> send(packet)
+WARNING: Mac address to reach destination not found. Using broadcast.
+.
+Sent 1 packets.
+>>> packet.show2()
+###[ IPv6 Option Header Routing ]###
+  nh= IPv6
+  len= 4
+  type= 0
+  segleft= 2
+  reserved= 0L
+  addresses= [ 8008::b8b8, 2001::a6b8 ]
+###[ IPv6 ]###
+     version= 6L
+     tc= 0L
+     fl= 0L
+     plen= 358
+     nh= ICMPv6
+     hlim= 64
+     src= 8008::b8b8
+     dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ ICMPv6 Echo Request ]###
+        type= Echo Request
+        code= 0
+        cksum= 0xde43
+        id= 0x0
+        seq= 0x0
+        data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> packet = x/z/y
+>>> packet.show2()
+###[ IPv6 ]###
+  version= 6L
+  tc= 0L
+  fl= 0L
+  plen= 398
+  nh= Routing Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Option Header Routing ]###
+     nh= ICMPv6
+     len= 4
+     type= 0
+     segleft= 2
+     reserved= 0L
+     addresses= [ 8008::b8b8, 2001::a6b8 ]
+###[ ICMPv6 Echo Request ]###
+        type= Echo Request
+        code= 0
+        cksum= 0xde43
+        id= 0x0
+        seq= 0x0
+        data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> send(packet)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+>>> packet.show2()
+###[ IPv6 ]###
+  version= 6L
+  tc= 0L
+  fl= 0L
+  plen= 398
+  nh= Routing Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+###[ IPv6 Option Header Routing ]###
+     nh= ICMPv6
+     len= 4
+     type= 0
+     segleft= 2
+     reserved= 0L
+     addresses= [ 8008::b8b8, 2001::a6b8 ]
+###[ ICMPv6 Echo Request ]###
+        type= Echo Request
+        code= 0
+        cksum= 0xde43
+        id= 0x0
+        seq= 0x0
+        data= 'far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run'
+>>> x.show()
+###[ IPv6 ]###
+  version= 6
+  tc= 0
+  fl= 0
+  plen= None
+  nh= No Next Header
+  hlim= 64
+  src= 8008::b8b8
+  dst= 2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535]
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> y.show
+<bound method ICMPv6EchoRequest.show of <ICMPv6EchoRequest  data='far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run' |>>
+>>> z.show
+<bound method IPv6ExtHdrRouting.show of <IPv6ExtHdrRouting  addresses=[ 8008::b8b8, 2001::a6b8 ] |>>
+>>> x.show
+<bound method IPv6.show of <IPv6  src=8008::b8b8 dst=2001::a6b8 [Teredo srv: 0.0.0.0 cli: 255.255.89.71:65535] |>>
+>>> z.show
+<bound method IPv6ExtHdrRouting.show of <IPv6ExtHdrRouting  addresses=[ 8008::b8b8, 2001::a6b8 ] |>>
+>>> y.show
+<bound method ICMPv6EchoRequest.show of <ICMPv6EchoRequest  data='far.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.runfar.run' |>>
+>>> packet(send)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: 'IPv6' object is not callable
+>>> send(packet)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: No route found for IPv6 destination 2001::a6b8 (no default route?)
+WARNING: more No route found for IPv6 destination 2001::a6b8 (no default route?)
+.
+Sent 1 packets.
+
