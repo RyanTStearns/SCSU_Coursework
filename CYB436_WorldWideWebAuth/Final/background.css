@@ -1,0 +1,287 @@
+@charset "utf-8";
+body
+	{
+	 background: black url("bg.jpg");
+	 background-repeat: repeat;
+	 margin:0 0 0 0;
+	}
+#wrapper {
+	height: auto;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	position: relative;
+}
+
+#header {
+	background-image: url(mhead.png);
+	margin: 0px;
+	padding: 0px;
+	height: 201px;
+	width: 800px;
+}
+
+#menu {
+	background-color: black;
+	height: 50px;
+	width: 800px;
+	}
+	
+#content {
+	background-color: #FFF;
+	height: 300px;
+	width: 740px;
+	background-image: url(../images/content_bg.jpg);
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+}
+.bodytext {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12pt;
+	font-style: normal;
+	line-height: 18px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #999;
+	text-decoration: none;
+}
+.bold {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: none;
+}
+
+#quizcontent{
+	width:800px;
+	height:800px;
+	background-image:url(../images/q_bg.jpg);
+}
+
+#footer{
+	width: 800px;
+	height: 40px;
+	background-color:#FFF;
+}
+
+/* div.background
+  {
+  width:800px;
+  height:250px;
+  background:url(bg.jpg) repeat;
+  border: none;
+  } */
+
+div.transbox
+  {
+  width:798px;
+  height:400px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.ttransbox
+  {
+  width:798px;
+  height:800px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.etransbox
+  {
+  width:798px;
+  height:900px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.eltransbox
+  {
+  width:798px;
+  height:850px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.e1transbox
+  {
+  width:798px;
+  height:1300px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.e2transbox
+  {
+  width:798px;
+  height:1180px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.e3transbox
+  {
+  width:798px;
+  height:1950px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.e4transbox
+  {
+  width:798px;
+  height:1510px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.testtransbox
+  {
+  width:798px;
+  height:1275px;
+  margin:0px 0px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  }
+  
+div.footbox
+ { 
+  width: 500px;
+  height: 50px;
+  margin: 0px 150px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  }
+
+div.transbox p
+  {
+  margin:30px 40px;
+  font-weight:bold;
+  color:#000000;
+  }
+  
+div.ttransbox p
+  {
+  margin:10px 30px;
+  font-weight:bold;
+  color:#000000;
+  }
+  
+div.etransbox p
+  {
+  margin:10px 30px;
+  font-weight:bold;
+  color:#000000;
+  }
+  
+div.eltransbox p
+  {
+  margin:10px 30px;
+  font-weight:bold;
+  color:#000000;
+  }
+  
+div.e2transbox p
+  {
+  margin:10px 30px;
+  font-weight:bold;
+  color:#000000;
+  }
+  
+div.e1transbox p
+  {
+  margin:10px 30px;
+  font-weight:bold;
+  color:#000000;
+  }
+  
+div.e3transbox p
+  {
+  margin:10px 30px;
+  font-weight:bold;
+  color:#000000;
+  }
+  
+div.e4transbox p
+  {
+  margin:10px 30px;
+  font-weight:bold;
+  color:#000000;
+  }
+ 
+div.testtransbox p
+  {
+  margin:10px 30px;
+  font-weight:bold;
+  color:#000000;
+  }
+ 
+table.tcenter 
+   {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+img.e
+	{
+	 opacity:0.4;
+	 filter:alpha(opacity=40); /* For IE8 and earlier */
+	}
+
+img.e:hover
+	{
+	 opacity:1.0;
+	 filter:alpha(opacity=100); /* For IE8 and earlier */
+	}
+ 
+
+a:link{
+	color:#0CC;
+}
+
+a:hover{
+	
+	color:#09F;
+}
+
+a:visited{
+	color:#C66
+	}
