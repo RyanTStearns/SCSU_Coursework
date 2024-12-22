@@ -1,0 +1,10 @@
+/* -------  Ryan Stearns  -------- */
+/* -------   00620126     -------- */
+/* -------  JavaScript    -------- */
+
+
+/*  Define background image and tile */
+body { background: white url("wf.jpg");
+	   background-repeat: repeat;
+	   color: white
+	 }

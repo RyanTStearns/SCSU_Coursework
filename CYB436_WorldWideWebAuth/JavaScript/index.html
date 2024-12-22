@@ -1,0 +1,258 @@
+<!--         Ryan Stearns      -->
+<!--          00620126         -->
+<!--         JavaScript        -->
+
+<!-- Define markup language to browser -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<!-- Define XML NameSpace and language -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+
+	<!-- Title of page -->
+	<head>
+		<script type="text/javascript">
+			//Define global variable
+			var i;
+			
+			function clear() {
+				getElementById('Code').value=''; 
+				}
+
+			 
+			/*function addr1() {
+			 //Add to global variable
+			 i += 1;
+			 //Ensure customer has only 4 items
+			 if (i > 4) {
+				//Display error if over four
+				alert("There are already four items on the receipt");
+				}
+			 else if (i = 1){
+				//Input values into receipt
+				document.getElementById('C1Code1').value = document.getElementById('Code').value;
+				document.getElementById('C1Item1').value = document.getElementById('IName').value;
+				document.getElementById('C1Qty1').value = document.getElementById('Quantity').value;
+				document.getElementById('C1Sub1').value = document.getElementById('ISub').value;
+				document.getElementById('C1Tax1').value = document.getElementById('TSub').value;
+				document.getElementById('C1Tot1').value = document.getElementById('ITotal').value;
+				}
+			 else if (i = 2) {
+				document.getElementById('C1Code2').value = document.getElementById('Code').value;
+				document.getElementById('C1Item2').value = document.getElementById('IName').value;
+				document.getElementById('C1Qty2').value = document.getElementById('Quantity').value;
+				document.getElementById('C1Sub2').value = document.getElementById('ISub').value;
+				document.getElementById('C1Tax2').value = document.getElementById('TSub').value;
+				document.getElementById('C1Tot2').value = document.getElementById('ITotal').value;
+				}
+				
+			}
+			*/
+			function array() {
+				var R1 = new Array(4);
+				for (j=0; j<4; j++) {
+					R1[j]=new Array(4);
+					}
+					}
+			
+				
+				
+			function gcode() {
+				//Define variables
+				var isub, tsub; 
+				isub = document.getElementById('Quantity').value * document.getElementById('PItem').value;
+				
+				//Check if item is taxable
+				if (document.getElementById('Taxable').value != " ") {
+					tsub = document.getElementById('ISub').value * .065;
+					}
+				else {
+					tsub = 0.00;
+					}
+				
+				
+				
+				if ( document.getElementById('Code').value > 1128 ) {
+					alert("You have entered an invalid code");
+					document.getElementById('Code').focus();
+					document.getElementById('Code').select();
+					}
+				else if ( document.getElementById('Code').value < 1111 ) {
+					alert("You have entered an invalid code");
+					document.getElementById('Code').focus();
+					document.getElementById('Code').select();
+					}
+				else if ( document.getElementById('Code').value = 1111 ) {
+					document.getElementById('IName').value = "Grapes";
+					document.getElementById('PItem').value = 1.99;
+					document.getElementById('Taxable').value = " " ;
+					document.getElementById('ISub').value = isub.toFixed(2);
+					document.getElementById('TSub').value = tsub;
+					document.getElementById('ITotal').value = (isub + tsub).toFixed(2);
+					}
+				else if ( document.getElementById('Code').value = 1112 ) {
+					document.getElementById('IName').value = "Apples";
+					document.getElementById('PItem').value = 1.49;
+					document.getElementById('Taxable').value = " " ;
+					document.getElementById('ISub').value = isub.toFixed(2);
+					document.getElementById('TSub').value = tsub;
+					document.getElementById('ITotal').value = (isub + tsub).toFixed(2);
+					}
+				}
+		</script>
+					
+				
+				
+			  
+			 
+			
+		<title> Welcome to Price Mart - Receipt </title>
+		
+		<!-- Define metadata -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		
+		<!-- Import external css -->
+		<link rel="stylesheet" href="javascript.css" type="text/css" />
+	</head>
+	
+	
+	<body>
+		<!-- Logo & Motto -->
+		<h1><b> Price Mart </b></h1>
+		
+		<h2><em> Serving the St. Cloud Community for 25 years! </em></h2>
+		<hr color="white">
+		
+	 <!-- Create table to place register and receipts -->
+	 <table>
+	  <tr>
+	  <td>
+	  
+		<!-- Create Virtual Register -->
+		<b><h2> Price Mart Virtual Register </h2></b>
+		<table>
+			<tr>
+				<!-- Update values button -->
+				<td><form><input type="Button" value="Update" onClick="gcode();" /></form></td>
+				<!-- Clear form button -->
+				<td><form><input type="Button" value="Clear" onClick="getElementById('Code').value='';getElementById('Quantity').value='';getElementById('IName');getElementById('PItem');getElementById('Taxable');getElementById('ISub');getElementById('TSub');getElementById('ITotal');" /></form></td>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<td><b><font color="#FFFF00"> Insert Code </font></b></td>
+				<td><form><input type="Text" id="Code" size="8" /></form></td>
+			</tr>
+			<tr>
+				<td><b><font color="#FFFF00"> Insert Quantity </font></b></td>
+				<td><form><input type="Input" id="Quantity" size="8" /></form></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td><i>  Item Name </i></td>
+				<td><form><input type="Input" id="IName" /></form></td>
+			</tr>
+			<tr>
+				<td><i>  Price Per Item </i></td>
+				<td><form><input type="Input" id="PItem" disabled="disabled" /></form></td>
+			</tr>
+			<tr>
+				<td><i>  Taxable </i></td>
+				<td><form><input type="Input" id="Taxable" disabled="disabled" /></form></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td><i>  Item Subtotal </i></td>
+				<td><form><input type="Input" id="ISub" disabled="disabled" /></form></td>
+			</tr>
+			<tr>
+				<td><i>  Tax Subtotal </i></td>
+				<td><form><input type="Input" id="TSub" disabled="disabled" /></form></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td><i>  Item Total </i></td>
+				<td><form><input type="Input" id="ITotal" disabled="disabled" /></form></td>
+			</tr>
+			
+		</table> 
+	  </td>
+	
+		
+	  <td>
+		<!-- Create Buttons -->
+		<table>
+			<tr><td><form><input type="Button" id="AR1" value="Add to Receipt 1" onClick="array();" /></form></td></tr>
+			<tr><td><form><input type="Button" id="AR2" value="Add to Receipt 2" /></form></td></tr>
+			<tr><td><form><input type="Button" id="CR1" value="Clear Receipt 1" /></form></td></tr>
+			<tr><td><form><input type="Button" id="CR2" value="Clear Receipt 1" /></form></td></tr>
+			<tr><td><form><input type="Button" id="CF" value="Clear Form" /></form></td></tr>
+		</table>
+	  </td>
+	  
+	  
+	  <td>
+		<!-- Create Customer One Table -->
+		<table border="1">
+			<tr>
+				<th> Code </th>
+				<th> Item </th>
+				<th> Qty </th>
+				<th> Subtotal </th>
+				<th> Tax </th>
+				<th> Item Tot </th>
+			</tr>
+			<tr>
+				<td><form><input type="Input" id="C1Code1" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Item1" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Qty1" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Sub1" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Tax1" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Tot1" disabled="disabled" /></form></td>
+			</tr>
+			<tr>
+				<td><form><input type="Input" id="C1Code2" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Item2" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Qty2" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Sub2" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Tax2" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Tot2" disabled="disabled" /></form></td>
+			</tr>
+			<tr>
+				<td><form><input type="Input" id="C1Code3" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Item3" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Qty3" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Sub3" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Tax3" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Tot3" disabled="disabled" /></form></td>
+			</tr>
+			<tr>
+				<td><form><input type="Input" id="C1Code4" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Item4" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Qty4" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Sub4" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Tax4" disabled="disabled" /></form></td>
+				<td><form><input type="Input" id="C1Tot4" disabled="disabled" /></form></td>
+			</tr>
+		</table>
+		
+		
+	  </td>
+	 </table>
+		
+	</body>
+</html>

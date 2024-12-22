@@ -1,0 +1,109 @@
+/* -------  Ryan Stearns  -------- */
+/* -------   00620126     -------- */
+/* -------  Assignment 2  -------- */
+/* ----- Pasha the Painter ------- */
+/* -------  painter.css   -------- */
+
+/*  Configures color and text for Pasha the Painter */
+
+/*  Define background and text color */
+body { background-color: #FFFFFF;
+	   color:#336633;
+	 }
+
+/*  Define link color */	 
+link { color: #000000;
+	 }
+	 
+	 
+h2 { margin: -10px 5px 5px 0px;
+	padding: 5px;
+	font-family: Verdana, sans-serif;
+	font-size: .90em;
+	float: left;
+	width: 200px;
+	background-color: #336600;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	}
+
+img { border: 0px;
+	 padding: 0px 10px 0px 0px;
+	}
+	
+#container { width: 620px;
+		}
+		
+#leftcolumn a { font-weight: bold;
+			  margin: 0 15px 15px 15px;
+			  display: block;			  
+			}
+			
+#leftcolumn { float: left;
+			   width: 150px;
+			   list-style-type:none;
+			  }
+			  
+div#leftcolumn ul { list-style-type:none;
+				  margin-left:0px;
+				  padding-left: 2px;  
+				} 
+			   
+#rightcolumn { margin: 10px 0px 0px 150px;
+			 }
+			 
+.floatright { float: right;
+			  padding: 5px;
+			}
+
+.desc { padding: 5px 0 20px 0;
+		border-top: 1px solid #336600;
+		}
+		
+.service { background-color: #336633;
+		   color: #FFFFFF;
+		   font-family: Verdana, sans-serif;
+		   font-weight: bold;
+		   font-size: .90em;
+		   padding: 0px 0px 0px 5px;
+		   text-transform: uppercase;
+		   border-style: solid;
+		   border-color: black;
+		   border-bottom-width: 1px;
+		   }
+		   
+.labelCol {  float: left;
+			 width: 100px;
+			 text-align: right;
+			 padding: 0px 10px 0px 0px;
+			 }
+			 
+.myRow { padding: 0px 0px 20px 0px;
+		}
+		
+.mySubmit { margin: 0px 0px 0px 110px;
+			padding: 0px 10px 0px 0px;
+			}
+		
+a:link { background-color: #FFFFFF;
+		color: #FF0000;
+		}
+		
+a:visited { background-color: #FFFFFF;
+			color: #00FF00;
+			}
+			
+a:focus { background-color: #FFFFFF;
+		  color: #CCCCCC;
+		  text-decoration: none;
+		  }
+		  
+a:hover { background-color: #FFFFFF;
+		  color: #000066;
+		  text-decoration: none;
+		  }
+		  
+a:active { background-color: #FFFFFF;
+			color: #CCCCCC;
+			text-decoration: none;
+			}

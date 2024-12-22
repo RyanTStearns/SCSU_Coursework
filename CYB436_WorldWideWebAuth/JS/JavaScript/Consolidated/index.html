@@ -1,0 +1,259 @@
+<!--         Ryan Stearns      -->
+<!--          00620126         -->
+<!--         JavaScript        -->
+
+<!-- Define markup language to browser -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<!-- Define XML NameSpace and language -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<script type="text/javascript">
+		/* Declare global variables */
+		var c=0, m=0, q=0, n=0, k=0, b=0;
+	</script>
+
+	<!-- Head of page -->
+	<head>
+		<!-- Import external custom functions --> 
+		<script src="functions.js"></script>
+		
+		<!-- Title of page -->
+		<title> Welcome to Price Mart - Virtual Register </title>
+		
+		<!-- Define metadata -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		
+		<!-- Import external css -->
+		<link rel="stylesheet" href="javascript.css" type="text/css" />
+		<!-- Import CSS Price Mart logo file -->
+		<link rel="stylesheet" href="logo.css" type="text/css" />
+	</head>
+	
+	
+	<body>
+	<!-- Initialize 2D Arrays -->
+	<script type="text/javascript">
+		/* Build item list Array */
+		var items = [
+		["CODE", " ITEM", "PRICE", "TAX"],
+		[						],
+		[1111,"  Grapes  ", 1.99,""],
+		[1112,"  Apples  ",1.49,""],
+		[1113,"  Paper Towels  ",5.79,"*"],
+		[1114,"  Toilet Paper  ",4.69,"*"],
+		[1115,"  Light Bulb  ",3.99,"*"],
+		[1116,"  XBOX 360 Console  ",299.99,"*"],
+		[1117,"  Jacks Frozen Pizza  ",2.99,""],
+		[1118,"  Eggs  ",1.29,""],
+		[1119,"  Milk  ",3.49,""],
+		[1120,"  Sandals  ",13.50,"*"],
+		[1121,"  Garbage Bags  ",6.99,"*"],
+		[1122,"  Laundry Detergent  ",5.79,"*"],
+		[1123,"  Bread  ",1.79,""],
+		[1124,"  Hangers  ",3.19,"*"],
+		[1125,"  Staples  ",0.99,"*"],
+		[1126,"  Pencils  ",1.09,"*"],
+		[1127,"  300w Stereo System  ",249.99,"*"],
+		[1128,"  32 LCD TV  ",325.99,"*"]
+		];
+	
+		/* Declare Receipt 1 Array */
+		var receipt1 = new Array();
+		receipt1[0] = new Array(4);
+		receipt1[1] = new Array(2);
+		
+		/* Declare Receipt 2 Array */
+		var receipt2 = new Array();
+		receipt2[0] = new Array(2);
+		receipt2[1] = new Array(2);
+	</script>
+		
+		<!-- Logo & Motto -->
+		<table>
+		<tr>
+		<td>
+			<!-- Create logo using CSS -->
+			<div id="element-1" class="element"> Price </div>
+			<div id="element-2" class="element"> Mart </div>
+		</td>
+		<!-- Fill space for motto -->
+		<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="right"><h2><em> Serving the St. Cloud Community for 25 years! </em></h2>
+			<font color="#FFFF00"><h6> Insert code and quantity and press "Update". If the information is correct you may add it to your receipt by pressing "Add to Receipt".
+				After you add an item, press the "Clear" button to continue shopping. </h6></font></td></tr>
+		</table>
+		<hr color="white" />
+		
+	 <!-- Create table to place register and receipts -->
+	 <table cellspacing="30">
+	  <tr>
+	  <td>
+		<table>
+		<tr><td>
+		<!-- List note on top -->
+		<h5><font color="#FFFF00"><u> Note </u>: Click "View Items" to see full inventory. </font></h5>
+		</td>				
+										
+		<table>
+		<!-- Define form -->
+		<form id="data_entry">
+			<tr>
+				<td>
+				<!-- Space buttons to right column -->
+				&nbsp;
+				<!-- View items button -->
+				<input type="Button" id="vitems" value="View Items" onClick="alert(items.join('\n'))" />
+				<!-- Update values button -->
+				&nbsp;&nbsp;<input type="Button" id="Update" value="Update" onClick="update();enabr();" /></td>
+				<!-- Clear form button -->
+				<td> &nbsp;&nbsp;<input type="Reset" id="Clear" value="Clear" onClick="resetIF();enable();disabr();" /></td>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<!-- Create user input for code -->
+				<td><b><font color="#FFFF00"> Insert Code </font></b></td>
+				<td><input type="Input" id="CodeBox" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<!-- Create user input for quantity -->
+				<td><b><font color="#FFFF00"> Insert Quantity </font></b></td>
+				<td><input type="Input" id="QuantityBox" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<!-- Create fields for item data -->
+				<td><i>  Item Name </i></td>
+				<td><input type="Input" id="IName" disabled="disabled" size="18" value="" /></td>
+			</tr>
+			<tr>
+				<td><i>  Price Per Item </i></td>
+				<td><input type="Input" id="PItem" disabled="disabled" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td><i>  Taxable </i></td>
+				<td><input type="Text" id="Taxable" disabled="disabled" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td><i>  Item Subtotal </i></td>
+				<td><input type="Text" id="ISub" disabled="disabled" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td><i>  Tax Subtotal </i></td>
+				<td><input type="Text" id="TSub" disabled="disabled" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td><i>  Item Total </i></td>
+				<td><input type="Text" id="ITotal" disabled="disabled" size="5" value="" /></td>
+			</tr>
+		</form>	
+		</table> 
+	  </td>
+	
+		
+	  <td>
+		<!-- Create Buttons -->
+		<table>
+			<tr><td><center><font color="#FFFF00"><b><u>After</u> "Update", choose : </b></font></center></td></tr>
+			<tr><td><center><input type="Button" id="AR1" value="Add to Receipt 1" onClick="ar1();disable();" disabled="disabled" /></center></td></tr>
+			<tr><td><center><input type="Button" id="AR2" value="Add to Receipt 2" onClick="ar2();disable();" disabled="disabled" /></center></td></tr>
+			<!-- Space buttons out -->
+			<tr><td> &nbsp; </td></tr>
+			<tr><td> &nbsp; </td></tr>
+			<tr><td> &nbsp; </td></tr>
+			<tr><td><center><font color="#FFFF00"><b>To Clear Receipts : </b></font></center></td></tr>
+			<tr><td><center><input type="Button" id="CR1" value="Clear Receipt 1" onClick="resetR1();" /></center></td></tr>
+			<tr><td><center><input type="Button" id="CR2" value="Clear Receipt 2" onClick="resetR2();" /></center></td></tr>
+		</table>
+	  </td>
+	  
+	  <td>
+		<!-- Define form -->
+		<form id="receipt_1">
+		<!-- Create receipt1 output table -->
+		<center><h2><b><u><font color="#CC0000"> Receipt One </font></b></u></h2></center>
+		<table border="5">
+			<tr>
+				<th> Code </th>
+				<th> Quantity </th>
+				<th> Item Name </th>
+				<th> Total Price </th>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="r0" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r1" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r2" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r3" disabled="disabled" style="text-align: center" /></td>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="r4" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r5" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r6" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r7" disabled="disabled" style="text-align: center" /></td>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="r8" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r9" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r10" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r11" disabled="disabled" style="text-align: center" /></td>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="r12" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r13" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r14" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="r15" disabled="disabled" style="text-align: center" /></td>
+			</tr>
+		</table>
+		</form>
+	  
+		<!-- Define form -->
+		<form id="receipt_2">
+		<!-- Create receipt2 output table -->
+		<center><h2><b><u><font color="#CC0000"> Receipt Two </font></b></u></h2></center>
+		<table border="5">
+			<tr>
+				<th> Code </th>
+				<th> Quantity </th>
+				<th> Item Name </th>
+				<th> Total Price </th>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="w0" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="w1" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="w2" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="w3" disabled="disabled" style="text-align: center" /></td>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="w4" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="w5" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="w6" disabled="disabled" style="text-align: center" /></td>
+				<td><input type="Text" id="w7" disabled="disabled" style="text-align: center" /></td>
+			</tr>
+		</table>
+		</form>
+	  </td>
+		
+	  
+	  
+	 <!-- End formatting table -->
+	 </table>
+		
+	</body>
+</html>

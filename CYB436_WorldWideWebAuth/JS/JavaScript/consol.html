@@ -1,0 +1,545 @@
+<!--         Ryan Stearns      -->
+<!--          00620126         -->
+<!--         JavaScript        -->
+
+<!-- Define markup language to browser -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<!-- Define XML NameSpace and language -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<script type="text/javascript">
+		/* Declare global variables */
+		var c=0, m=0, q=0, n=0, k=0, b=0;
+	</script>
+
+	<!-- Title of page -->
+	<head>
+		
+		
+		<script type="text/javascript">
+		/* Create function to execute data transfer to array receipt1 */
+		function ar1 () {
+			/* Check to see if user already has four items */
+			if (m > 3) {
+				alert("You already have four items on your receipt!");
+				}
+			else {
+				/* Temporarily disable add to receipt and update button */
+				document.getElementById('AR1').disabled = true;
+				document.getElementById('Update').disabled = true;
+				/* Define variables for user inputted values */
+				var g, h, z, u;
+				g = document.getElementById('CodeBox').value;
+				h = document.getElementById('QuantityBox').value;
+				z = document.getElementById('ITotal').value;
+				u = document.getElementById('IName').value;
+				/* Check user inputted code and insert into array */
+				receipt1[c][m] = parseFloat(g);
+				/* Take value out of array and display in table */
+				document.getElementById('r' + b).value = receipt1[c][m];
+				/* Add to global variable for table cell switching */
+				b += 1;
+				/*  Check user inputted quantity and insert into array */
+				receipt1[c][m] = parseFloat(h);
+				document.getElementById('r' + b).value = receipt1[c][m];
+				/*  Add to global variable for table cell switching */
+				b += 1;
+				/*  Get item name and insert into array */
+				receipt1[c][m] = u;
+				/*  Take value out of array and display in table */
+				document.getElementById('r' + b).value = receipt1[c][m]; 
+				/* Add to global variable for table cell switching */
+				b += 1;
+				/*  Take final item total and insert into array */
+				receipt1[c][m] = parseFloat(z);
+				/*  Take value out of array and display in table */
+				document.getElementById('r' + b).value = receipt1[c][m]; 
+				/*  Add to global variables for table cell switching and array */  
+				b += 1;
+				m += 1;
+				}
+			}
+			
+		/* Create function to execute data transfer to array receipt2 */
+		function ar2 () {
+			/* Check to see if user already has two items */
+			if (c > 1) {
+				alert("You already have two items on your receipt!");
+				}
+			else {
+				/* Temporarily disable add to receipt and update button */
+				document.getElementById('AR2').disabled = true;
+				document.getElementById('Update').disabled = true;
+				var f, t, Tot, Name;
+				f = document.getElementById('CodeBox').value;
+				t = document.getElementById('QuantityBox').value;
+				Tot = document.getElementById('ITotal').value;
+				Name = document.getElementById('IName').value;
+				/* Check user inputted code and insert into array */
+				receipt2[q][n] = parseFloat(f);
+				/* Take value out of array and display in table */
+				document.getElementById('w' + k).value = receipt2[q][n];
+				/* Add to global variable for table cell switching */
+				k += 1;
+				/*  Take final item total and insert into array */
+				receipt2[q][n] = parseFloat(t);
+				document.getElementById('w' + k).value = receipt2[q][n];
+				/*  Add to global variables for table cell switching and array */ 
+				k += 1;
+				/* Get item name and insert into array */
+				receipt2[q][n] = Name;
+				/* Take value out of array and display in table */
+				document.getElementById('w' + k).value = receipt2[q][n];
+				/* Add to global variable for table cell switching */
+				k += 1;
+				/* Take final item total and insert into array */
+				receipt2[q][n] = parseFloat(Tot);
+				/* Take value out of array and display in table */
+				document.getElementById('w' + k).value = receipt2[q][n];
+				/* Add to global variables for table cell switching and array */
+				k += 1;
+				n += 1;
+				}
+			}
+			
+		/* Create function to enable buttons */
+		function enable() {
+			document.getElementById('AR1').disabled = false;
+			document.getElementById('Update').disabled = false;
+			document.getElementById('AR2').disabled = false;
+			}	
+			
+		/* Create function to reset Input Form */
+			function resetIF() {
+				document.getElementById('data_entry').reset();
+				}
+				
+		/* Create function to reset Receipt1 */
+			function resetR1() {
+				document.getElementById('receipt_1').reset();
+				}
+
+		/* Create function to reset Receipt2 */
+			function resetR2() {
+				document.getElementById('receipt_2').reset();
+				}
+				
+		/* Create function to update linked data */
+		function update () {
+			/* Define variable for item subtotal */
+			var isub; 
+			//Apply values to item
+			var itemsub, ccode;
+			ccode = parseFloat(document.getElementById('CodeBox').value);
+			
+			if ( ccode > 1128 ) {
+					alert("You have entered an invalid code");
+					document.getElementById('CodeBox').focus();
+					document.getElementById('CodeBox').select();
+					}
+			else if ( ccode < 1111 ) {
+					alert("You have entered an invalid code");
+					document.getElementById('CodeBox').focus();
+					document.getElementById('CodeBox').select();
+					}
+			else if ( ccode == 1111 ) {
+					document.getElementById('IName').value = "Grapes";
+					document.getElementById('PItem').value = 1.99;
+					document.getElementById('Taxable').value = " " ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					document.getElementById('TSub').value = 0.00;
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1112 ) {
+					document.getElementById('IName').value = "Apples";
+					document.getElementById('PItem').value = 1.49;
+					document.getElementById('Taxable').value = " " ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					document.getElementById('TSub').value = 0.00;
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1113 ) {
+					document.getElementById('IName').value = "Paper Towels";
+					document.getElementById('PItem').value = 5.79;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1114 ) {
+					document.getElementById('IName').value = "Toilet Paper";
+					document.getElementById('PItem').value = 4.69;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}		
+			else if ( ccode == 1115 ) {
+					document.getElementById('IName').value = "Light Bulb";
+					document.getElementById('PItem').value = 3.99;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1116 ) {
+					document.getElementById('IName').value = "XBOX 360 Console";
+					document.getElementById('PItem').value = 299.99;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1117 ) {
+					document.getElementById('IName').value = "Jack's Frozen Pizza";
+					document.getElementById('PItem').value = 2.99;
+					document.getElementById('Taxable').value = " " ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					document.getElementById('TSub').value = 0.00;
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1118 ) {
+					document.getElementById('IName').value = "Eggs";
+					document.getElementById('PItem').value = 1.29;
+					document.getElementById('Taxable').value = " " ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					document.getElementById('TSub').value = 0.00;
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);					
+					}
+			else if ( ccode == 1119 ) {
+					document.getElementById('IName').value = "Milk";
+					document.getElementById('PItem').value = 3.49;
+					document.getElementById('Taxable').value = " " ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					document.getElementById('TSub').value = 0.00;
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1120 ) {
+					document.getElementById('IName').value = "Sandals";
+					document.getElementById('PItem').value = 13.50;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1121 ) {
+					document.getElementById('IName').value = "Garbage Bags";
+					document.getElementById('PItem').value = 6.99;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1122 ) {
+					document.getElementById('IName').value = "Laundry Detergent";
+					document.getElementById('PItem').value = 5.79;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);	
+					}
+			else if ( ccode == 1123 ) {
+					document.getElementById('IName').value = "Bread";
+					document.getElementById('PItem').value = 1.79;
+					document.getElementById('Taxable').value = " " ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					document.getElementById('TSub').value = 0.00;
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);
+					}
+			else if ( ccode == 1124 ) {
+					document.getElementById('IName').value = "Hangers";
+					document.getElementById('PItem').value = 3.19;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);	
+					}
+			else if ( ccode == 1125 ) {
+					document.getElementById('IName').value = "Staples";
+					document.getElementById('PItem').value = 0.99;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);	
+					}
+			else if ( ccode == 1126 ) {
+					document.getElementById('IName').value = "Pencils";
+					document.getElementById('PItem').value = 0.99;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);	
+					}
+			else if ( ccode == 1127 ) {
+					document.getElementById('IName').value = "300w Stereo System";
+					document.getElementById('PItem').value = 249.99;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);	
+					}
+			else if ( ccode == 1128 ) {
+					document.getElementById('IName').value = "32 LCD TV";
+					document.getElementById('PItem').value = 325.99;
+					document.getElementById('Taxable').value = "*" ;
+					isub = parseFloat(document.getElementById('QuantityBox').value * document.getElementById('PItem').value);
+					document.getElementById('ISub').value = isub.toFixed(2);
+					tsub = parseFloat(document.getElementById('ISub').value * .065);
+					document.getElementById('TSub').value = tsub.toFixed(2);
+					itemsub = parseFloat(document.getElementById('ISub').value) + parseFloat(document.getElementById('TSub').value);
+					document.getElementById('ITotal').value = parseFloat(itemsub);	
+					}
+			}
+		</script>
+		
+		<title> Welcome to Price Mart - Receipt </title>
+		
+		<!-- Define metadata -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		
+		<!-- Import external css -->
+		<link rel="stylesheet" href="javascript.css" type="text/css" />
+		<!-- Import CSS Price Mart logo file -->
+		<link rel="stylesheet" href="logo.css" type="text/css" />
+	</head>
+	
+	
+	<body>
+	<!-- Initialize 2D Arrays -->
+	<script type="text/javascript">
+		var items = new Array();
+		items[0] = new Array(18);
+		items[1] = new Array(18);
+		
+		var receipt1 = new Array();
+		receipt1[0] = new Array(4);
+		receipt1[1] = new Array(2);
+		
+		var receipt2 = new Array();
+		receipt2[0] = new Array(2);
+		receipt2[1] = new Array(2);
+	</script>
+		
+		<!-- Logo & Motto -->
+		<table>
+		<tr>
+		<td>
+		<div id="element-1" class="element"> Price </div>
+		<div id="element-2" class="element"> Mart </div></td>
+		<!-- Fill space for motto -->
+		<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="right"><h2><em> Serving the St. Cloud Community for 25 years! </em></h2>
+			<font color="#FFFF00"><h6> Insert code and quantity and press "Update". If the information is correct you may add it to your receipt by pressing "Add to Receipt".
+				After you add an item, press the "Clear" button to continue shopping. </h6></font></td></tr>
+		</table>
+		<hr color="white" />
+		
+	 <!-- Create table to place register and receipts -->
+	 <table>
+	  <tr>
+	  <td>
+		<table>
+		<tr><td>
+		<h5><font color="#FFFF00"><u> Note </u>: Click "View Items" to see full inventory. </font></h5>
+		</td>				
+										
+		<table>
+		<!-- Define form -->
+		<form id="data_entry">
+			<tr>
+				<td>
+				<!-- Space buttons to right column -->
+				&nbsp;
+				<!-- View items button -->
+				<input type="Button" id="vitems" value="View Items" />
+				<!-- Update values button -->
+				&nbsp;&nbsp;<input type="Button" id="Update" value="Update" onClick="update();" /></td>
+				<!-- Clear form button -->
+				<td> &nbsp;&nbsp;<input type="Reset" id="Clear" value="Clear" onClick="resetIF();enable();" /></td>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<td><b><font color="#FFFF00"> Insert Code </font></b></td>
+				<td><input type="Input" id="CodeBox" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td><b><font color="#FFFF00"> Insert Quantity </font></b></td>
+				<td><input type="Input" id="QuantityBox" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td><i>  Item Name </i></td>
+				<td><input type="Input" id="IName" disabled="disabled" size="18" value="" /></td>
+			</tr>
+			<tr>
+				<td><i>  Price Per Item </i></td>
+				<td><input type="Input" id="PItem" disabled="disabled" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td><i>  Taxable </i></td>
+				<td><input type="Text" id="Taxable" disabled="disabled" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td><i>  Item Subtotal </i></td>
+				<td><input type="Text" id="ISub" disabled="disabled" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td><i>  Tax Subtotal </i></td>
+				<td><input type="Text" id="TSub" disabled="disabled" size="5" value="" /></td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td><i>  Item Total </i></td>
+				<td><input type="Text" id="ITotal" disabled="disabled" size="5" value="" /></td>
+			</tr>
+		</form>	
+		</table> 
+	  </td>
+	
+		
+	  <td>
+		<!-- Create Buttons -->
+		<table>
+			<tr><td><input type="Button" id="AR1" value="Add to Receipt 1" onClick="ar1();" /></td></tr>
+			<tr><td><input type="Button" id="AR2" value="Add to Receipt 2" onClick="ar2();" /></td></tr>
+			<tr><td><input type="Button" id="CR1" value="Clear Receipt 1" onClick="resetR1();" /></td></tr>
+			<tr><td><input type="Button" id="CR2" value="Clear Receipt 2" onClick="resetR2();" /></td></tr>
+			<tr><td><input type="Button" id="CF" value="Clear Form" /></td></tr>
+		</table>
+	  </td>
+	  
+	  <td>
+		<!-- Define form -->
+		<form id="receipt_1">
+		<!-- Create receipt1 output table -->
+		<center><h2><b><u><font color="#CC0000"> Receipt One </font></b></u></h2></center>
+		<table border="5">
+			<tr>
+				<th> Code </th>
+				<th> Quantity </th>
+				<th> Item Name </th>
+				<th> Total Price </th>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="r0" disabled="disabled" /></td>
+				<td><input type="Text" id="r1" disabled="disabled" /></td>
+				<td><input type="Text" id="r2" disabled="disabled" /></td>
+				<td><input type="Text" id="r3" disabled="disabled" /></td>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="r4" disabled="disabled" /></td>
+				<td><input type="Text" id="r5" disabled="disabled" /></td>
+				<td><input type="Text" id="r6" disabled="disabled" /></td>
+				<td><input type="Text" id="r7" disabled="disabled" /></td>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="r8" disabled="disabled" /></td>
+				<td><input type="Text" id="r9" disabled="disabled" /></td>
+				<td><input type="Text" id="r10" disabled="disabled" /></td>
+				<td><input type="Text" id="r11" disabled="disabled" /></td>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="r12" disabled="disabled" /></td>
+				<td><input type="Text" id="r13" disabled="disabled" /></td>
+				<td><input type="Text" id="r14" disabled="disabled" /></td>
+				<td><input type="Text" id="r15" disabled="disabled" /></td>
+			</tr>
+		</table>
+		</form>
+	  
+		<!-- Define form -->
+		<form id="receipt_2">
+		<!-- Create receipt2 output table -->
+		<center><h2><b><u><font color="#CC0000"> Receipt Two </font></b></u></h2></center>
+		<table border="5">
+			<tr>
+				<th> Code </th>
+				<th> Quantity </th>
+				<th> Item Name </th>
+				<th> Total Price </th>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="w0" disabled="disabled" /></td>
+				<td><input type="Text" id="w1" disabled="disabled" /></td>
+				<td><input type="Text" id="w2" disabled="disabled" /></td>
+				<td><input type="Text" id="w3" disabled="disabled" /></td>
+			</tr>
+			<tr> 
+				<td><input type="Text" id="w4" disabled="disabled" /></td>
+				<td><input type="Text" id="w5" disabled="disabled" /></td>
+				<td><input type="Text" id="w6" disabled="disabled" /></td>
+				<td><input type="Text" id="w7" disabled="disabled" /></td>
+			</tr>
+		</table>
+		</form>
+	  </td>
+		
+	  
+	  
+	 <!-- End formatting table -->
+	 </table>
+		
+	</body>
+</html>
