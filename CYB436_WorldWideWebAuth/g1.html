@@ -1,0 +1,176 @@
+<html> 
+	<head> 
+		<title>CNA 436 Reciept DB</title> 
+		
+		<script type="text/javascript">
+		
+		function RecGen(){
+		var item_array = new Array("Empty" , "Tomato" , "Orange" , "Apple" , "Banana" , "Avocado" , "Milk" , "Sugar" , "Pepsi" , "Water" , "Onion" , "toilet paper" , "spagetti" , "Organic banana");
+		var price_array = new Array("0" , "3.99" , "3.45" , "3.49" , "3.25" ,"3.45" , "1.95" , "3.65" , "4.99" , "3.34" , "4.65" , "5.49" , "7.55" , "4.49");
+		var tax_array = new Array("N" , "N" , "N" , "N" , "N" , "N" , "N" , "N" , "Y" , "Y" , "N" , "N" ,"Y" , "Y" ); 
+		var tax = .05;
+		var subtotal = 0; 
+		var total = 0; 
+		var total_tax = 0; 
+		var n = 1; 
+				
+		for(n=1;n<=13;n++){
+			
+		var i = document.getElementById('id' + n).value;
+		var d = document.getElementById('q' + n).value;
+		var name = item_array[i];
+		var price = price_array[i]; 
+		var taxable = tax_array[i]; 
+	
+		document.getElementById('rid' + n).value = i; 
+		document.getElementById('quantity' + n).value = d;
+		document.getElementById('item' + n).value = name;
+		document.getElementById('price' + n).value = price;
+		document.getElementById('taxable' + n).value = taxable;
+		document.getElementById('subtotal' + n).value = price*d;
+		if (taxable == 'Y'){
+			document.getElementById('tax' + n).value = eval(document.getElementById('subtotal' + n).value)*tax;
+		}
+		else{
+			document.getElementById('tax' + n).value = eval(document.getElementById('subtotal' + n).value)*0;
+		}
+			
+		document.getElementById('total' + n).value = eval(document.getElementById('tax' + n).value) + eval(document.getElementById('subtotal' + n).value);
+
+		}
+		
+		document.getElementById('TotalTax').value = eval(document.getElementById('tax1').value) + eval(document.getElementById('tax2').value) + eval(document.getElementById('tax3').value) + eval(document.getElementById('tax4').value) + eval(document.getElementById('tax5').value);
+		
+		
+		document.getElementById('TotalTotal').value = eval(document.getElementById('total1').value) + eval(document.getElementById('total2').value) + eval(document.getElementById('total3').value) + eval(document.getElementById('total4').value) + eval(document.getElementById('total5').value);
+		
+				
+		}
+		
+		</script> 
+	</head>
+	
+	<body bgcolor=#fffcc0   > <center>
+		<form name="Receipt_DB" />
+		<H1><strong>Instruction</strong><H2>
+		<H5>Please enter  item codes from 1 to 13</H5>
+		<H4>
+<table border ="2" width=20% cellpadding="4">
+<tr>
+<td>
+		Item 1:<input type="text" id="id1" size="5" value=""/> Quantity:<input type="text" id="q1" size="5" value="" /><br />	
+		Item 2:<input type="text" id="id2" size="5" value=""/> Quantity:<input type="text" id="q2" size="5" value="" /><br />	
+		Item 3:<input type="text" id="id3" size="5" value=""/> Quantity:<input type="text" id="q3" size="5" value="" /><br />	
+		Item 4:<input type="text" id="id4" size="5" value=""/> Quantity:<input type="text" id="q4" size="5" value="" /><br />	
+		Item 5:<input type="text" id="id5" size="5" value=""/> Quantity:<input type="text" id="q5" size="5" value="" /></td><br />
+</tr>
+</table>
+		</H4>	
+		<input type="button" value=" Receipt" onclick="RecGen()" />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="Clear"  />
+		
+	
+		<br /> <br />
+	
+			<table border="2"> 
+				<tr>
+					<th>ID</th>
+					<th>Item</th>
+					<th>Price</th>
+					<th>Quantity</th> 
+					<th>Subtotal</th>
+					<th>Taxable</th>
+					<th>Tax</th>
+					<th>Total</th>
+
+				</tr>
+				
+				<tr>
+					<td><input type="text" id="rid1" size="5"  readonly/></td>
+					<td><input type="text" id="item1" size="5"  readonly/></td>
+					<td><input type="text" id="price1" size="5"  readonly/></td>
+					<td><input type="text" id="quantity1" size="5"  readonly/></td>
+					<td><input type="text" id="subtotal1" size="5"  readonly/></td>
+					<td><input type="text" id="taxable1" size="5" readonly/></td>
+					<td><input type="text" id="tax1" size="5"  readonly/></td>
+
+					<td><input type="text" id="total1" size="5"  readonly/></td>
+				</tr>
+				
+				<tr>
+					<td><input type="text" id="rid2" size="5"  readonly/></td>
+					<td><input type="text" id="item2" size="5"  readonly/></td>
+					<td><input type="text" id="price2" size="5"  readonly/></td>
+					<td><input type="text" id="quantity2" size="5"  readonly/></td>
+					<td><input type="text" id="subtotal2" size="5"  readonly/></td>
+					<td><input type="text" id="taxable2" size="5"readonly/></td>
+
+					<td><input type="text" id="tax2" size="5"  readonly/></td>
+					<td><input type="text" id="total2" size="5"  readonly/></td>
+				</tr>
+				
+				<tr>
+					<td><input type="text" id="rid3" size="5"  readonly/></td>
+					<td><input type="text" id="item3" size="5"  readonly/></td>
+					<td><input type="text" id="price3" size="5"  readonly/></td>
+					<td><input type="text" id="quantity3" size="5"  readonly/></td>
+					<td><input type="text" id="subtotal3" size="5"  readonly/></td>
+
+					<td><input type="text" id="taxable3" size="5" readonly/></td>
+					<td><input type="text" id="tax3" size="5"  readonly/></td>
+					<td><input type="text" id="total3" size="5"  readonly/></td>
+				</tr>
+				
+				<tr>
+					<td><input type="text" id="rid4" size="5"  readonly/></td>
+					<td><input type="text" id="item4" size="5"  readonly/></td>
+					<td><input type="text" id="price4" size="5"  readonly/></td>
+					<td><input type="text" id="quantity4" size="5"  readonly/></td>
+
+					<td><input type="text" id="subtotal4" size="5"  readonly/></td>
+					<td><input type="text" id="taxable4" size="5"readonly/></td>					
+					<td><input type="text" id="tax4" size="5"  readonly/></td>
+					<td><input type="text" id="total4" size="5"  readonly/></td>
+				</tr>
+				
+				<tr>
+					<td><input type="text" id="rid5" size="5"  readonly/></td>
+					<td><input type="text" id="item5" size="5"  readonly/></td>
+					<td><input type="text" id="price5" size="5"  readonly/></td>
+					<td><input type="text" id="quantity5" size="5"  readonly/></td>
+					<td><input type="text" id="subtotal5" size="5"  readonly/></td>
+					<td><input type="text" id="taxable5" size="5" readonly/></td>
+					<td><input type="text" id="tax5" size="5"  readonly/></td>
+					<td><input type="text" id="total5" size="5"  readonly/></td>
+				</tr>
+				
+				<tr>
+					<td>&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >Total Tax:</td>
+					<td><input type="text" id="TotalTax" size="5" value="" readonly/></td>
+				</tr>
+				
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>Total:</td>
+					<td ><input type="text" id="TotalTotal" size="5" value="" readonly/></td>
+				</tr>
+
+					
+			</table>
+		</form>
+	
+	</body> </center>
+
+</html> 
